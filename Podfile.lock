@@ -1,0 +1,35 @@
+PODS:
+  - PinLayout (1.10.4)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - Swinject (2.8.3)
+
+DEPENDENCIES:
+  - PinLayout
+  - RxCocoa
+  - RxRelay
+  - RxSwift
+  - Swinject
+
+SPEC REPOS:
+  trunk:
+    - PinLayout
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - Swinject
+
+SPEC CHECKSUMS:
+  PinLayout: f8a677ce0cd1cfe96b58435d029b4ceb4ce9c04c
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
+
+PODFILE CHECKSUM: 482921e95c2f33c9e84b59bf10e6820fc14c9081
+
+COCOAPODS: 1.12.0
