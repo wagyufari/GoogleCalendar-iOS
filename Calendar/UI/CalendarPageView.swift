@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  CalendarPageView.swift
 //  Calendar
 //
 //  Created by Muhammad Ghifari on 1/5/2023.
@@ -10,9 +10,18 @@ import UIKit
 
 class MainView: UIView{
     
+    var date: Date? {
+        didSet{
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+    }
+    
     var collectionView: UICollectionView!
     let collectionViewLayout: UICollectionViewFlowLayout
     var eventContainer: UIView
+    
+    let dateLabel = UILabel()
     
     init(){
         collectionViewLayout = UICollectionViewFlowLayout()
@@ -25,6 +34,7 @@ class MainView: UIView{
         backgroundColor = .white
         addSubview(collectionView)
         addSubview(eventContainer)
+        addSubview(dateLabel)
     }
     
     override func layoutSubviews() {
@@ -35,11 +45,20 @@ class MainView: UIView{
     }
     
     func performContent() {
+        if let date {
+            let calendar = Calendar.current
+            let month = calendar.component(.month, from: date)
+            let year = calendar.component(.year, from: date)
+            dateLabel.text = "\(month) \(year)"
+            dateLabel.textColor = .black
+            dateLabel.font = .systemFont(ofSize: 32)
+        }
     }
     
     func performLayout() {
         collectionView.pin.all(pin.safeArea)
         eventContainer.pin.all(pin.safeArea)
+        dateLabel.pin.center().sizeToFit()
     }
     
     required init?(coder aDecoder: NSCoder) {

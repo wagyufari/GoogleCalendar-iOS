@@ -1,5 +1,5 @@
 //
-//  MainViewModel.swift
+//  CalendarPageViewModel.swift
 //  Calendar
 //
 //  Created by Muhammad Ghifari on 1/5/2023.
@@ -20,12 +20,16 @@ class MainViewModel {
     init(getCalendarByMonthAndYearUseCase: GetCalendarByMonthAndYearUseCase, getEventsUseCase: GetEventsUseCase) {
         self.getCalendarByMonthAndYearUseCase = getCalendarByMonthAndYearUseCase
         self.getEventsUseCase = getEventsUseCase
-        let now = Date()
-        let calendar = Calendar.current
-        let month = calendar.component(.month, from: now)
-        let year = calendar.component(.year, from: now)
-        dates.accept(getCalendarByMonthAndYearUseCase.invoke(month: 4, year: 2023))
-        events.accept(getEventsUseCase.invoke())
+    }
+    
+    func getDates(date: Date?) {
+        if let date {
+            let calendar = Calendar.current
+            let month = calendar.component(.month, from: date)
+            let year = calendar.component(.year, from: date)
+            dates.accept(getCalendarByMonthAndYearUseCase.invoke(month: month, year: year))
+            events.accept(getEventsUseCase.invoke())
+        }
     }
     
 }
